@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import MultiSelect from './components/MultiSelect';
+import { Option } from './components/MultiSelect/types';
+import ArrowIcon from './components/MultiSelect/ArrowIcon';
+
+const ALL_OPTIONS: Option[] = [
+  { label: 'Education', value: 'education', icon: '🎓' },
+  { label: 'Science',   value: 'science',   icon: '🔬' },
+  { label: 'Art',       value: 'art',       icon: '🎨' },
+  { label: 'Sport',     value: 'sport',     icon: '⚽️' },
+  { label: 'Music',     value: 'music',     icon: '🎵' },
+  // …etc
+];
 
 function App() {
+  const [selected, setSelected] = useState<Option[]>([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1 className="app-title">
+         Multi Select Component 🎉
+      </h1>
+      <MultiSelect
+        options={ALL_OPTIONS}
+        value={selected}
+        onChange={setSelected}
+        placeholder="Yeeeah, science! 🛸"
+      />
     </div>
   );
 }

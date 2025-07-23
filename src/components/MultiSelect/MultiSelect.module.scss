@@ -1,0 +1,136 @@
+// MultiSelect.module.scss
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 4px 8px;
+  background-color: #fff;
+
+  &:focus-within {
+    border-color: #3F51B5;
+    box-shadow: 0 0 0 2px #a3abc7;
+  }
+}
+
+.control {
+  position: relative;      
+  display: flex;
+  align-items: center;
+  padding-right: 32px;
+  cursor: text;
+
+  input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    outline: none;
+    min-width: 100px;
+    font-size: 14px;
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px; 
+}
+
+.tag {
+  background: #F2F4FF;
+  border-radius: 8px;
+  padding: 2px 6px;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  word-break: break-all; 
+
+  button {
+    background: transparent;
+    border: none;
+    margin-left: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  font-size: 12px;
+  pointer-events: auto;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.arrowOpen {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  z-index: 10;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+
+    /* Firefox */
+  scrollbar-width: thin;              
+  scrollbar-color: #888 transparent; 
+  &::-webkit-scrollbar {
+    width: 5px;                      
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;          
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.25); 
+    border-radius: 2.5px;             
+    border: 1px solid transparent;     
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.option {
+  padding: 8px;
+  margin: 4px;
+  display: flex;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    background: #c6cfee;
+  }
+}
+
+.selected {
+  background: #F2F4FF;
+  color: #3F51B5;
+  font-weight: 600;
+}
+
+.checkIcon {
+  margin-left: auto;
+  font-size: 12px;
+}
